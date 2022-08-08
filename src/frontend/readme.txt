@@ -1,0 +1,1 @@
+This is the readme for the frontend which will be a React applciation

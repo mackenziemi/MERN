@@ -1,0 +1,3 @@
+../../backend/node_modules/**/*.*
+src/backend/node_modules/.package-lock.json
+src/backend/node_modules/
