@@ -24,4 +24,5 @@ Todo.build({
     title: 'some title',
     description: 'some description'
 });
+
 //# sourceMappingURL=todo.js.map
