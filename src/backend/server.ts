@@ -1,16 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import { json } from 'body-parser';
+import dotenv from 'dotenv';
 
 import { todoController } from './controllers/todos';
 
-const PORT = 5500
+dotenv.config();
+
+const PORT = process.env.PORT;
 
 const app = express();
 app.use(json());
 app.use(todoController);
 
-mongoose.connect('mongodb+srv://admin:foFoJTRYbUUCwbbQ@cluster0.bmhz0te.mongodb.net/mern', {}, ()=>{
+mongoose.connect(process.env.DATABASE ?? "", {}, ()=>{
     console.log("connected to database")
 });
 
