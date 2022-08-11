@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { json } from 'body-parser';
 import dotenv from 'dotenv';
 
-import { todoController } from './controllers/todos';
+import { todoRoutes} from './routes/todos.routes';
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 
 const app = express();
 app.use(json());
-app.use(todoController);
+app.use(todoRoutes);
 
 mongoose.connect(process.env.DATABASE ?? "", {}, ()=>{
     console.log("connected to database")
