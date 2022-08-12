@@ -6,7 +6,7 @@ import {
     createNewTodo,
     updateTodoById,
     deleteTodoById
-} from '../controllers/todos.controller';
+} from '../controllers/todo.controller';
 
 
 const router = express.Router();
@@ -16,26 +16,26 @@ router.get('/api/todos', async (req: Request, res: Response)=> {
     return res.status(200).send(todos);
 })
 
-router.get('/api/todo/:id', async (req: Request, res: Response)=> {
+router.get('/api/todos/:id', async (req: Request, res: Response)=> {
     const id = req.params.id;
     const todo = await getTodoById(id);
     return res.status(200).send(todo);
 })
 
-router.post('/api/todo', async (req: Request, res: Response)=> {
+router.post('/api/todos', async (req: Request, res: Response)=> {
     const { title, description } = req.body;
     const todo = await createNewTodo(title, description);
     return res.status(201).send(todo);    
 })
 
-router.put('/api/todo/:id', async (req: Request, res: Response)=>{
+router.put('/api/todos/:id', async (req: Request, res: Response)=>{
     const id = req.params.id;
     const { title, description} = req.body;
     const result = await updateTodoById(id, title, description);
     return res.status(200).send(result);
 })
 
-router.delete('/api/todo/:id', async (req: Request, res: Response)=>{
+router.delete('/api/todos/:id', async (req: Request, res: Response)=>{
     const id = req.params.id;
     const result = await deleteTodoById(id);
     return res.status(200).send(result);
