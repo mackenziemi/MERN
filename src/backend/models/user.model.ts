@@ -1,3 +1,4 @@
+import { NextFunction } from "express";
 import mongoose from "mongoose";
 
 interface IUser {
