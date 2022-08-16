@@ -12,7 +12,8 @@ interface userDoc extends mongoose.Document {
     email: string,
     password: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    accessTypes: Array<String>
 }
 
 interface userModel extends mongoose.Model<userDoc> {
@@ -35,6 +36,10 @@ const userSchema = new mongoose.Schema({
     lastName: {
         type: String,
         required: false
+    },
+    accessTypes: {
+        type: Array<String>,
+        required: true
     }
 })
 

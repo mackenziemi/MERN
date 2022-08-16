@@ -9,12 +9,11 @@ export const createNewUser = async (
     ) => {
 
         const passwordHash = bcrypt.hashSync(password, 10);
-        console.log(`Your password hash is ${passwordHash}`);
         password = passwordHash;
         const user = User.build({email, password, firstName, lastName});
+        user.accessTypes = ['basic'];
 
         await user.save();
-        console.log(`Created new user, id: ${user.id}`);
         return user;
 }
 
